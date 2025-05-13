@@ -1,0 +1,6 @@
+helmGlobals:
+  chartHome: ../../../charts/
+helmCharts:
+  - name: cassandra
+    releaseName: cassandra
+    valuesFile: ./values.yaml

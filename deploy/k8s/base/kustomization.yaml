@@ -1,0 +1,7 @@
+kind: Kustomization
+
+namespace: chat
+
+resources:
+  - namespace.yaml
+  - cassandra/

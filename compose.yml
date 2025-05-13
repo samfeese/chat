@@ -1,0 +1,23 @@
+services:
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra_container
+    ports:
+      - "9042:9042"
+    environment:
+      - CASSANDRA_USER=${CASSANDRA_USER}
+      - CASSANDRA_PASSWORD=${CASSANDRA_PASSWORD}
+    volumes:
+      - cassandra-data:/var/lib/cassandra
+
+  api:
+    image: registry.gap.dev/chat-api:latest
+    environment:
+      - CASSANDRA_HOST=${CASSANDRA_HOST}
+      - CASSANDRA_KEYSPACE=${CASSANDRA_KEYSPACE}
+    depends_on:
+      - cassandra
+    ports:
+      - "8080:8080"
+volumes:
+  cassandra-data:
