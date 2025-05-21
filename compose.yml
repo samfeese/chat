@@ -11,7 +11,7 @@ services:
       - cassandra-data:/var/lib/cassandra
 
   api:
-    image: registry.gap.dev/chat-api:latest
+    image: registry.dev/chat-api:latest
     environment:
       - CASSANDRA_HOST=${CASSANDRA_HOST}
       - CASSANDRA_KEYSPACE=${CASSANDRA_KEYSPACE}
